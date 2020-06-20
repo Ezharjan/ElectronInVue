@@ -331,11 +331,17 @@ if (isDevelopment) {
 
 
 
-### 12. Remove the preload.js file into the dist_electron folder if running npm run electron:serve fails or no proload-js file created along with package-json file and an index-js file in a compatible mode.
+### 12. Move the preload.js file into the dist_electron folder if running *npm run electron:serve* fails or no proload-js file created along with package-json file and an index-js file in a compatible mode.
 
 
 
 ### 13. Run again and it will be OK.
+
+
+
+
+
+
 
 
 
