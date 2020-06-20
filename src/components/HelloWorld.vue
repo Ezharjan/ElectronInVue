@@ -58,26 +58,22 @@ export default {
         },
         ReadLocalFileInNodeJS() {
             // let filePath = document.querySelector('#file-path').value;
+            console.log(window.readConfig('D:/myText.txt'));
             try {
                 // console.log(window.readConfig(filePath));
-                console.log(window.readConfig('D:/myText.txt'));
             } catch (err) {
                 console.log(err);
                 console.error('error occurred while getting the file path from input.');
             }
         },
         WriteLocalFileInNodeJS() {
-            // let filePath = document.querySelector('#file-path').value;
-            window.writeFileConfig('D:/eee.txt', 'hello world', function () {
-                console.log('done!');
-            });
-            // window.writeFileConfig('D:/ttt.txt', 'hello world');
-            // try {
-            //     window.writeFileConfig(filePath, 'Something you want to write in the file.');
-            // } catch (err) {
-            //     console.log(err);
-            //     console.error('error occurred while getting the file path from input.');
-            // }
+            let filePath = document.querySelector('#file-path').value;
+            try {
+                window.writeFileConfig(filePath, 'Something you want to write in the file.');
+            } catch (err) {
+                console.log(err);
+                console.error('error occurred while getting the file path from input.');
+            }
         }
     }
 }
