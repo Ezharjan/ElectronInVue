@@ -5,6 +5,7 @@
     "author": "Alexander Ezharjan",
     "description": "This is a simple demo to test all the availibities of electron-builder utility in a Vue based project. ",
     "scripts": {
+        "watch": "tsc -w",
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
