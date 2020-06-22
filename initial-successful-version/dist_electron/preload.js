@@ -86,25 +86,25 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/preload.js":
+/***/ "./src/preload.ts":
 /*!************************!*\
-  !*** ./src/preload.js ***!
+  !*** ./src/preload.ts ***!
   \************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// preload.js 中使用nodejs\r\nconst { readFileSync, write } = __webpack_require__(/*! fs */ \"fs\")\r\nconst { readFile } = __webpack_require__(/*! fs */ \"fs\")\r\nconst { writeFile } = __webpack_require__(/*! fs */ \"fs\");\r\nconst { hasUncaughtExceptionCaptureCallback } = __webpack_require__(/*! process */ \"process\");\r\n\r\nwindow.readConfig = function() {\r\n    // const data = readFileSync('./config.json')\r\n    console.log(\"%%%%%%%%%%%%%%%%%\");\r\n    const data = readFileSync('D:/myText.txt')\r\n    return data\r\n}\r\n\r\n\r\nwindow.writeFileConfig = function(_path, anythingUWanaWrite, my_callback) {\r\n\r\n        writeFile(_path, anythingUWanaWrite, function() {\r\n            console.log(\"OK!\");\r\n        });\r\n    }\r\n    // fs.writeFile(_path, \"electron + Javascript\", function (err) {\r\n    //     if (!err)\r\n    //         console.log(\"写入成功！\")\r\n    // })\r\n\r\n// index.html 后加载的内容可以使用window.readConfig()方法，但不能使用Node.js特性\r\n// console.log(window.readConfig()) // 正常执行\r\n// console.log(readFileSync('./config.json')) // 报错\n\n//# sourceURL=webpack:///./src/preload.js?");
+eval("// preload.js 中使用nodejs\r\nconst { readFileSync, write } = __webpack_require__(/*! fs */ \"fs\")\r\nconst { readFile } = __webpack_require__(/*! fs */ \"fs\")\r\nconst { writeFile } = __webpack_require__(/*! fs */ \"fs\");\r\nconst { hasUncaughtExceptionCaptureCallback } = __webpack_require__(/*! process */ \"process\");\r\n\r\n\r\nthis.readConfig = function() {\r\n    // const data = readFileSync('./config.json')\r\n    console.log(\"%%%%%%%%%%%%%%%%%\");\r\n    const data = readFileSync('D:/myText.txt')\r\n    return data\r\n}\r\n\r\n\r\n\r\nthis.writeFileConfig = function(_path, anythingUWanaWrite, my_callback) {\r\n\r\n        writeFile(_path, anythingUWanaWrite, function() {\r\n            console.log(\"OK!\");\r\n        });\r\n    }\r\n    // fs.writeFile(_path, \"electron + Javascript\", function (err) {\r\n    //     if (!err)\r\n    //         console.log(\"写入成功！\")\r\n    // })\r\n\r\n// index.html 后加载的内容可以使用window.readConfig()方法，但不能使用Node.js特性\r\n// console.log(window.readConfig()) // 正常执行\r\n// console.log(readFileSync('./config.json')) // 报错\n\n//# sourceURL=webpack:///./src/preload.ts?");
 
 /***/ }),
 
 /***/ 0:
 /*!******************************!*\
-  !*** multi ./src/preload.js ***!
+  !*** multi ./src/preload.ts ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! D:\\4-th_Grade\\Internship\\ElectronInVue\\initial-successful-version\\src\\preload.js */\"./src/preload.js\");\n\n\n//# sourceURL=webpack:///multi_./src/preload.js?");
+eval("module.exports = __webpack_require__(/*! D:\\4-th_Grade\\Internship\\ElectronInVue\\initial-successful-version\\src\\preload.ts */\"./src/preload.ts\");\n\n\n//# sourceURL=webpack:///multi_./src/preload.ts?");
 
 /***/ }),
 

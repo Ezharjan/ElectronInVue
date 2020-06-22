@@ -4,7 +4,8 @@ const { readFile } = require('fs')
 const { writeFile } = require('fs');
 const { hasUncaughtExceptionCaptureCallback } = require('process');
 
-window.readConfig = function() {
+
+this.readConfig = function() {
     // const data = readFileSync('./config.json')
     console.log("%%%%%%%%%%%%%%%%%");
     const data = readFileSync('D:/myText.txt')
@@ -12,7 +13,8 @@ window.readConfig = function() {
 }
 
 
-window.writeFileConfig = function(_path, anythingUWanaWrite, my_callback) {
+
+this.writeFileConfig = function(_path, anythingUWanaWrite, my_callback) {
 
         writeFile(_path, anythingUWanaWrite, function() {
             console.log("OK!");

@@ -12,8 +12,9 @@
         "postinstall": "electron-builder install-app-deps",
         "postuninstall": "electron-builder install-app-deps"
     },
-    "main": "background.js",
+    "main": "background.ts",
     "dependencies": {
+        "@types/node": "^12.12.6",
         "core-js": "^3.6.5",
         "electron": "^9.0.4",
         "electron-builder": "^22.7.0",
