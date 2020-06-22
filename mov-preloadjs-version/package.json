@@ -1,7 +1,9 @@
 {
-    "name": "my-project",
+    "name": "electron-in-vue",
     "version": "0.1.0",
     "private": true,
+    "author": "Alexander Ezharjan",
+    "description": "This is a simple demo to test all the availibities of electron-builder utility in a Vue based project. ",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
@@ -9,16 +11,14 @@
         "electron:build": "vue-cli-service electron:build",
         "electron:serve": "vue-cli-service electron:serve",
         "postinstall": "electron-builder install-app-deps",
-        "postuninstall": "electron-builder install-app-deps"
+        "postuninstall": "electron-builder install-app-deps",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "main": "background.js",
     "dependencies": {
         "core-js": "^3.6.5",
-        "electron": "^9.0.4",
-        "electron-builder": "^22.7.0",
+        "electron": "^9.0.0",
         "fs": "0.0.1-security",
-        "nedb": "^1.8.0",
-        "nedb-promises": "^4.0.3",
         "vue": "^2.6.11"
     },
     "devDependencies": {
@@ -49,5 +49,24 @@
         "> 1%",
         "last 2 versions",
         "not dead"
-    ]
+    ],
+    "bugs": {
+        "url": "https://github.com/Ezharjan/ElectronInVue/issues"
+    },
+    "homepage": "https://github.com/Ezharjan/ElectronInVue#readme",
+    "keywords": [
+        "electron-builder",
+        "Typecript",
+        "Javascript",
+        "Vue",
+        "prelod-file",
+        "vue-config-js",
+        "background-js"
+    ],
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ezharjan/ElectronInVue.git"
+    },
+    "__npminstall_done": false
 }
