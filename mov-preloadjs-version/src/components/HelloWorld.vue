@@ -6,6 +6,8 @@
         <button id="should-read-as-text" @click="changeReadType()">{{readTypeMsg}}</button>
         <button id="read-file-in-nodejs" @click="ReadLocalFileInNodeJS()">Read Local File</button>
         <button id="write-file-in-nodejs" @click="WriteLocalFileInNodeJS()">Write Local File</button>
+        <button id="db-insert" @click="InsertInfo()">Insert A Name</button>
+        <button id="db-find" @click="FindInfo()">Find A Name</button>
     </div>
 </template>
 
@@ -73,6 +75,37 @@ export default {
             } catch (err) {
                 console.log(err);
                 console.error('error occurred while getting the file path from input.');
+            }
+        },
+        InsertInfo() {
+            // window.insertInfo();---unusable
+            this.DBOperation(0);
+        },
+        FindInfo() {
+            // window.findInfo();---unusable
+            this.DBOperation(1);
+        },
+        DBOperation(insertOrFind = 0, nameToInsert = 'Alexander', ageToInsert = 25, rankToInsert = 1) {
+            var NeDB = require('nedb');
+            var db = new NeDB({
+                filename: './user.db',
+                autoload: true,
+            });
+
+            if (insertOrFind === 0) {
+                db.insert({
+                    name: nameToInsert,
+                    age: ageToInsert,
+                    rank: rankToInsert,
+                }, function (err, doc) {
+                    console.log('inserted:', doc)
+                });
+            } else {
+                db.find({
+                    name: nameToInsert,
+                }, function (err, docs) {
+                    console.log(nameToInsert + ' found:', docs)
+                });
             }
         }
     }

@@ -17,6 +17,7 @@
     },
     "main": "background.js",
     "dependencies": {
+        "cnpm": "^6.1.1",
         "core-js": "^3.6.5",
         "electron": "^9.0.0",
         "fs": "0.0.1-security",
