@@ -19,6 +19,7 @@
         "core-js": "^3.6.5",
         "electron": "^9.0.0",
         "fs": "0.0.1-security",
+        "nedb": "^1.8.0",
         "vue": "^2.6.11"
     },
     "devDependencies": {
