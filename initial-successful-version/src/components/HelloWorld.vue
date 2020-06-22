@@ -48,9 +48,10 @@ export default {
             //OK!!!
             // console.log(window.readConfig());
 
-            window.writeFileConfig('D:/eee.txt', 'hello world', function () {
+            /* window.writeFileConfig('D:/eee.txt', 'hello world', function () {
                 console.log('done!');
-            });
+            }); */
+            window.reader();
 
             // fs.writeFile(_path, "electron + Javascript", function (err) {
             //     if (!err)

@@ -91,9 +91,9 @@
   !*** ./src/preload.ts ***!
   \************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-eval("// preload.js 中使用nodejs\r\nconst { readFileSync, write } = __webpack_require__(/*! fs */ \"fs\")\r\nconst { readFile } = __webpack_require__(/*! fs */ \"fs\")\r\nconst { writeFile } = __webpack_require__(/*! fs */ \"fs\");\r\nconst { hasUncaughtExceptionCaptureCallback } = __webpack_require__(/*! process */ \"process\");\r\n\r\n\r\nthis.readConfig = function() {\r\n    // const data = readFileSync('./config.json')\r\n    console.log(\"%%%%%%%%%%%%%%%%%\");\r\n    const data = readFileSync('D:/myText.txt')\r\n    return data\r\n}\r\n\r\n\r\n\r\nthis.writeFileConfig = function(_path, anythingUWanaWrite, my_callback) {\r\n\r\n        writeFile(_path, anythingUWanaWrite, function() {\r\n            console.log(\"OK!\");\r\n        });\r\n    }\r\n    // fs.writeFile(_path, \"electron + Javascript\", function (err) {\r\n    //     if (!err)\r\n    //         console.log(\"写入成功！\")\r\n    // })\r\n\r\n// index.html 后加载的内容可以使用window.readConfig()方法，但不能使用Node.js特性\r\n// console.log(window.readConfig()) // 正常执行\r\n// console.log(readFileSync('./config.json')) // 报错\n\n//# sourceURL=webpack:///./src/preload.ts?");
+eval("throw new Error(\"Module parse failed: Unexpected token (30:8)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| \\n> (window as any).reader = this.readConfig()\\n| \\n|     //(window as any).writer = this.writeConfig()\");\n\n//# sourceURL=webpack:///./src/preload.ts?");
 
 /***/ }),
 
@@ -105,28 +105,6 @@ eval("// preload.js 中使用nodejs\r\nconst { readFileSync, write } = __webpack
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__(/*! D:\\4-th_Grade\\Internship\\ElectronInVue\\initial-successful-version\\src\\preload.ts */\"./src/preload.ts\");\n\n\n//# sourceURL=webpack:///multi_./src/preload.ts?");
-
-/***/ }),
-
-/***/ "fs":
-/*!*********************!*\
-  !*** external "fs" ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"fs\");\n\n//# sourceURL=webpack:///external_%22fs%22?");
-
-/***/ }),
-
-/***/ "process":
-/*!**************************!*\
-  !*** external "process" ***!
-  \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"process\");\n\n//# sourceURL=webpack:///external_%22process%22?");
 
 /***/ })
 
