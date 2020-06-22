@@ -5,7 +5,38 @@
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
     "target": "es2015",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
-    "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+    "module": "commonjs",  /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+      // 输出目录
+      "outDir": "./dist/",
+      // 添加需要的解析的语法，否则TS会检测出错。
+      "lib": ["es2015", "es2016", "dom"],
+      // 模块的解析
+      "moduleResolution": "node",
+      // 在表达式和声明上有隐含的any类型时报错
+      "noImplicitAny": false,
+      // 把 ts 文件编译成 js 文件的时候，同时生成对应的 map 文件
+      "sourceMap": true,
+      // 允许编译javascript文件
+      "allowJs": true,
+      // 指定基础目录
+      "baseUrl": "./",
+      // 启用装饰器
+      "experimentalDecorators": true,
+      // 移除注释
+      "removeComments": true,
+      "pretty": true,
+      // 是相对于"baseUrl"进行解析
+      "paths": {
+        "vue": ["node_modules/vue/types"],
+        "@/*": ["src/*"]
+      }
+    },
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "node_modules"
+    ] ,
     // "lib": [],                             /* Specify library files to be included in the compilation. */
     // "allowJs": true,                       /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */
@@ -25,7 +56,7 @@
     // "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
 
     /* Strict Type-Checking Options */
-    "strict": false,                           /* Enable all strict type-checking options. */
+    "strict": true,                           /* Enable all strict type-checking options. */
     // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
     // "strictNullChecks": true,              /* Enable strict null checks. */
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
@@ -66,4 +97,4 @@
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   }
-}
+
