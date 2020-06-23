@@ -26,8 +26,9 @@ function createWindow() {
       // .ELECTRON_NODE_INTEGRATION as unknown) as boolean
       nodeIntegration: true
     }
-  });
-  preload: path.join(__dirname, 'preload.ts');
+  }
+  );
+  preload: path.join(__dirname, 'preload.js');
 
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
