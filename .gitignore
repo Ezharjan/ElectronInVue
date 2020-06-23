@@ -1,3 +1,4 @@
+.gitignore
 .DS_Store
 node_modules
 /dist
@@ -15,6 +16,9 @@ pnpm-debug.log*
 # Editor directories and files
 .idea
 .vscode
+/.vscode/
+.vscode/
+*/.vscode/
 *.suo
 *.ntvs*
 *.njsproj
