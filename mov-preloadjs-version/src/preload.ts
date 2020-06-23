@@ -13,15 +13,15 @@ var db = new NeDB({
 
 
 
-window.readConfig = function(filePath) {
+(window as any).readConfig = function (filePath) {
     console.log("File has been successfully read!");
     const data = readFileSync(filePath);
     return data;
 };
 
 
-window.writeFileConfig = function(filePath, anythingUWanaWrite) {
-    writeFile(filePath, anythingUWanaWrite, function() {
+(window as any).writeFileConfig = function (filePath, anythingUWanaWrite) {
+    writeFile(filePath, anythingUWanaWrite, function () {
         console.log("File written done!");
     });
 };
@@ -36,21 +36,21 @@ window.writeFileConfig = function(filePath, anythingUWanaWrite) {
 // console.log(readFileSync('./config.json')) // 报错
 
 
-
-window.insertInfo = function(nameToInsert = 'Alexander', ageToInsert = 25, rankToInsert = 1) {
+/*
+(window as any).insertInfo = function (nameToInsert = 'Alexander', ageToInsert = 25, rankToInsert = 1) {
     db.insert({
         name: nameToInsert,
         age: ageToInsert,
         rank: rankToInsert,
-    }, function(err, doc) {
+    }, function (err, doc) {
         console.log('inserted:', doc)
     });
 };
 
-window.findInfo = function(nameToFind = 'Alexander') {
+(window as any).findInfo = function (nameToFind = 'Alexander') {
     db.find({
         name: nameToFind,
-    }, function(err, docs) {
+    }, function (err, docs) {
         console.log(nameToFind + ' found:', docs)
     });
-};
+}; */
