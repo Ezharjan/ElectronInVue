@@ -13,15 +13,15 @@ var db = new NeDB({
 
 
 
-(window as any).readConfig = function (filePath) {
+window.readConfig = function(filePath) {
     console.log("File has been successfully read!");
     const data = readFileSync(filePath);
     return data;
 };
 
 
-(window as any).writeFileConfig = function (filePath, anythingUWanaWrite) {
-    writeFile(filePath, anythingUWanaWrite, function () {
+window.writeFileConfig = function(filePath, anythingUWanaWrite) {
+    writeFile(filePath, anythingUWanaWrite, function() {
         console.log("File written done!");
     });
 };

@@ -15,7 +15,7 @@
         "postuninstall": "electron-builder install-app-deps",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "main": "background.js",
+    "main": "background.ts",
     "dependencies": {
         "cnpm": "^6.1.1",
         "core-js": "^3.6.5",
