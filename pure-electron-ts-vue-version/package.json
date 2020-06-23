@@ -11,7 +11,7 @@
         "postinstall": "electron-builder install-app-deps",
         "postuninstall": "electron-builder install-app-deps"
     },
-    "main": "./src/main.js",
+    "main": "./src/main.ts",
     "dependencies": {
         "core-js": "^3.6.5",
         "vue": "^2.6.11"
