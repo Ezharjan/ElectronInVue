@@ -106,3 +106,32 @@ var db = new NeDB({
 
 const globalAny: any = global;
 globalAny.myDB = db;
+
+
+/**
+ * 构建TCP服务端
+ */
+
+/* 引入net模块 */
+import * as TCP from "net"
+/* 创建TCP服务端 */
+const tcp = TCP.createServer((socket: TCP.Socket) => {
+
+  const buffer: Buffer = new Buffer('I am a server.', 'utf-8');
+  console.log('Connected with: ' +
+    socket.remoteAddress + ' : ' + socket.remotePort + ' \n');
+  /* 向客户端发送数据 */
+  socket.write(buffer);
+
+  /* 监听客户端传来的data数据 */
+  socket.on('data', function (data) {
+    console.log('Data received is: ' + socket.remoteAddress + ': ' + data + '. \n');
+    /* 回发该数据，客户端将收到来自服务端的数据*/
+    socket.write('echo---Client said "' + data + '"');
+  });
+});
+
+/* 启动监听 */
+tcp.listen(4000, () => {
+  console.log('listening... \n');
+});

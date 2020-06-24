@@ -7,6 +7,7 @@
 1. The projects tested writing and reading file from local disk and also tested database operations using NeDB.
 2. Both of the project is usable but the V2.0 is recommended for its using electron-builder version 9.0, which is the latest by now. 
 3. More utilizations are being tested.
+4. When checking the socket, v1.0 is served as a client while v2.0 as the server side.
 
 
 
