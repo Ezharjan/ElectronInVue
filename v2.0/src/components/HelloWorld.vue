@@ -1,97 +1,115 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-        <h1>Chrome:{{version}}</h1>
-        <p>
-            For a guide and recipes on how to configure / customize this project,
-            <br />check out the
-            <a
-                href="https://cli.vuejs.org"
-                target="_blank"
-                rel="noopener"
-            >vue-cli documentation</a>.
-        </p>
-        <h3>Installed CLI Plugins</h3>
-        <ul>
-            <li>
-                <a
-                    href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-                    target="_blank"
-                    rel="noopener"
-                >babel</a>
-            </li>
-            <li>
-                <a
-                    href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript"
-                    target="_blank"
-                    rel="noopener"
-                >typescript</a>
-            </li>
-            <li>
-                <a
-                    href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-                    target="_blank"
-                    rel="noopener"
-                >eslint</a>
-            </li>
-        </ul>
-        <h3>Essential Links</h3>
-        <ul>
-            <li>
-                <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-            </li>
-            <li>
-                <a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a>
-            </li>
-            <li>
-                <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a>
-            </li>
-            <li>
-                <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a>
-            </li>
-            <li>
-                <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-            </li>
-        </ul>
-        <h3>Ecosystem</h3>
-        <ul>
-            <li>
-                <a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a>
-            </li>
-            <li>
-                <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-            </li>
-            <li>
-                <a
-                    href="https://github.com/vuejs/vue-devtools#vue-devtools"
-                    target="_blank"
-                    rel="noopener"
-                >vue-devtools</a>
-            </li>
-            <li>
-                <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a>
-            </li>
-            <li>
-                <a
-                    href="https://github.com/vuejs/awesome-vue"
-                    target="_blank"
-                    rel="noopener"
-                >awesome-vue</a>
-            </li>
-        </ul>
+        <button id="should-read-as-text" @click="textChanger()">{{readTypeMsg}}</button>
+        <button id="read-file-in-nodejs" @click="ReadLocalFileInNodeJS()">Read Local File</button>
+        <button id="write-file-in-nodejs" @click="WriteLocalFileInNodeJS()">Write Local File</button>
+        <button id="db-insert" @click="InsertInfo()">Insert A Name</button>
+        <button id="db-find" @click="FindInfo()">Find A Name</button>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-//import { remote } from "electron";
+import { readFile, readFileSync, writeFile, writeFileSync } from "fs";
+import { remote } from "electron";
+
 @Component
 export default class HelloWorld extends Vue {
-  private version = "";
-  @Prop() private msg!: string;
-  created() {
-    this.version = (window as any).$electron.remote.process.versions.chrome;
-  }
+    @Prop() private msg!: string;
+
+    private db = remote.getGlobal("myDB");
+
+    readTypeMsg = "Text Changed";
+    shouldChangeText = false;
+
+    created() {
+        // 何か処理
+    }
+
+    mounted() {
+        // 何か処理
+    }
+
+    updated() {
+        // 何か処理
+    }
+
+    destroyed() {
+        // 何か処理
+    }
+
+    initialize(): void {
+        this.shouldChangeText = false;
+    }
+
+    textChanger(): void {
+        this.shouldChangeText = !this.shouldChangeText;
+        console.log(this.shouldChangeText);
+        (this.shouldChangeText && (this.readTypeMsg = "Change Text")) ||
+            (this.readTypeMsg = "Text Changed");
+    }
+
+    ReadLocalFile(): void {
+        console.log("not supported yet!");
+    }
+
+    ReadLocalFileInNodeJS(): void {
+        // //Using 'readFile' is not recomended here, use 'readFileSync' instead
+        try {
+            console.log(readFileSync("D:/myText.txt"));
+        } catch (err) {
+            console.log(
+                "Please place a myText.txt file in disk-D or revise the code above"
+            );
+        }
+    }
+
+    WriteLocalFileInNodeJS(): void {
+        //Using 'writeFile' is not recomended here, use 'writeFileSync' instead
+        writeFileSync("D:/test.txt", "This is a testing file.");
+    }
+
+    InsertInfo(): void {
+        alert("Are you sure to insert?");
+        this.DBOperation(0);
+    }
+
+    FindInfo(): void {
+        console.log("Find the names...");
+        this.DBOperation(1);
+    }
+
+    DBOperation(
+        insertOrFind = 0,
+        nameToInsert = "Alexander",
+        ageToInsert = 25,
+        rankToInsert = 1
+    ) {
+        //Create the database in the main process --- background.js
+
+        if (insertOrFind === 0) {
+            this.db.insert(
+                {
+                    name: nameToInsert,
+                    age: ageToInsert,
+                    rank: rankToInsert
+                },
+                function(err: any, doc: any) {
+                    console.log("inserted:", doc);
+                }
+            );
+        } else {
+            this.db.find(
+                {
+                    name: nameToInsert
+                },
+                function(err: any, docs: any) {
+                    console.log(nameToInsert + " found:", docs);
+                }
+            );
+        }
+    }
 }
 </script>
 

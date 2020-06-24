@@ -93,3 +93,16 @@ if (isDevelopment) {
     })
   }
 }
+
+//Type your code here if you want
+
+
+//Create database here in the main process
+var NeDB = require('nedb');
+var db = new NeDB({
+  filename: './user.db',
+  autoload: true,
+});
+
+const globalAny: any = global;
+globalAny.myDB = db;

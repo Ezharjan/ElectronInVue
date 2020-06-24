@@ -1,5 +1,5 @@
 {
-    "name": "vte",
+    "name": "electron-in-vue",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -19,6 +19,7 @@
         "vue-property-decorator": "^8.4.2"
     },
     "devDependencies": {
+        "@types/node": "^12.12.21",
         "@typescript-eslint/eslint-plugin": "^2.33.0",
         "@typescript-eslint/parser": "^2.33.0",
         "@vue/cli-plugin-babel": "~4.4.0",
@@ -29,9 +30,9 @@
         "electron": "^9.0.0",
         "eslint": "^6.7.2",
         "eslint-plugin-vue": "^6.2.2",
+        "nedb": "^1.8.0",
         "typescript": "~3.9.3",
         "vue-cli-plugin-electron-builder": "~2.0.0-rc.2",
-        "vue-template-compiler": "^2.6.11",
-        "@types/node": "^12.12.21"
+        "vue-template-compiler": "^2.6.11"
     }
 }
