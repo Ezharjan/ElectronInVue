@@ -31,7 +31,6 @@ function createWindow() {
     win.loadURL('app://./index.html')
   }
 
-  // Будет вызвано, когда окно будет закрыто.
   win.on('closed', () => {
     win = null
   })
