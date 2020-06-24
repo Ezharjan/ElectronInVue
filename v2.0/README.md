@@ -1,4 +1,4 @@
-# vte
+# Template Of Electron In Vue+Typescript Project 2.0
 
 ## Project setup
 ```
@@ -20,5 +20,4 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
