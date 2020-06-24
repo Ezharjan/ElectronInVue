@@ -114,6 +114,8 @@ globalAny.myDB = db;
 
 /* 引入net模块 */
 import * as TCP from "net"
+
+
 /* 创建TCP服务端 */
 const tcp = TCP.createServer((socket: TCP.Socket) => {
 
@@ -131,7 +133,9 @@ const tcp = TCP.createServer((socket: TCP.Socket) => {
   });
 });
 
-/* 启动监听 */
-tcp.listen(4000, () => {
-  console.log('listening... \n');
-});
+globalAny.myServer = tcp;
+
+// /* 启动监听 */
+// tcp.listen(4000, () => {
+//   console.log('listening... \n');
+// });

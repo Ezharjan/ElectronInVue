@@ -6,6 +6,7 @@
         <button id="write-file-in-nodejs" @click="WriteLocalFileInNodeJS()">Write Local File</button>
         <button id="db-insert" @click="InsertInfo()">Insert A Name</button>
         <button id="db-find" @click="FindInfo()">Find A Name</button>
+        <button id="start-listening" @click="StartListening()">Listen</button>
     </div>
 </template>
 
@@ -19,6 +20,7 @@ export default class HelloWorld extends Vue {
     @Prop() private msg!: string;
 
     private db = remote.getGlobal("myDB");
+    private tcpServer = remote.getGlobal("myServer");
 
     readTypeMsg = "Text Changed";
     shouldChangeText = false;
@@ -109,6 +111,13 @@ export default class HelloWorld extends Vue {
                 }
             );
         }
+    }
+
+    StartListening() {
+        /* 启动监听 */
+        this.tcpServer.listen(4000, () => {
+            console.log("listening... \n");
+        });
     }
 }
 </script>

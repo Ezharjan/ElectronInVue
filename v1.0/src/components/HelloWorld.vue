@@ -6,6 +6,7 @@
         <button id="write-file-in-nodejs" @click="WriteLocalFileInNodeJS()">Write Local File</button>
         <button id="db-insert" @click="InsertInfo()">Insert A Name</button>
         <button id="db-find" @click="FindInfo()">Find A Name</button>
+        <button id="cleint-connect" @click="Connect2Server()">Connect</button>
     </div>
 </template>
 
@@ -18,7 +19,8 @@ import { remote } from "electron";
 export default class HelloWorld extends Vue {
     @Prop() private msg!: string;
 
-    private db = remote.getGlobal("myDB");
+    private db = remote.getGlobal("myDB"); //这里的名称一定要写对!
+    private client = remote.getGlobal("myClient"); //这里的名称一定要写对!
 
     readTypeMsg = "Text Changed";
     shouldChangeText = false;
@@ -109,6 +111,28 @@ export default class HelloWorld extends Vue {
                 }
             );
         }
+    }
+
+    Connect2Server() {
+        /* 设置连接的服务器 */
+        this.client.connect(4000, "127.0.0.1", () => {
+            console.log(" Alexander--- connected to the server. \n");
+
+            /* 向服务器发送数据 */
+            this.client.write("I am a client. \n");
+        });
+
+        /* 监听服务器传来的data数据 */
+        this.client.on("data", function(data: any) {
+            console.log(
+                "\n Alexander: the data from server is " + data.toString()
+            );
+        });
+
+        /* 监听end事件 */
+        this.client.on("end", function() {
+            console.log("\n Alexander: data ended. ");
+        });
     }
 }
 </script>
