@@ -5,12 +5,6 @@
 const { readFileSync } = require('fs');
 const { writeFile } = require('fs');
 
-var NeDB = require('nedb');
-var db = new NeDB({
-    filename: './user.db',
-    autoload: true,
-});
-
 
 
 window.readConfig = function(filePath) {

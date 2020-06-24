@@ -3,6 +3,7 @@ const { readFileSync } = require('fs');
 const { writeFile } = require('fs');
 
 
+
 window.readConfig = function(filePath) {
     console.log("File has been successfully read!");
     const data = readFileSync(filePath);

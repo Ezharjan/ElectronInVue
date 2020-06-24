@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'HelloWorld',
     props: {
@@ -93,6 +94,8 @@ export default {
             });
 
             if (insertOrFind === 0) {
+                // this.db.insert({
+                // remote.getGlobal("db").insert({
                 db.insert({
                     name: nameToInsert,
                     age: ageToInsert,
@@ -101,6 +104,8 @@ export default {
                     console.log('inserted:', doc)
                 });
             } else {
+                // this.db.find({
+                // remote.getGlobal("db").find({
                 db.find({
                     name: nameToInsert,
                 }, function (err, docs) {
